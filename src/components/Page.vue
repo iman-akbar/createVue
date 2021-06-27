@@ -375,7 +375,7 @@ export default {
       }
       return classes
     },
-   }s
+   }
 };
 </script>
 
