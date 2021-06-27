@@ -20,6 +20,7 @@ opacity: 1;"
     v-model="dateRange"
     :date-format="dateFormat"
     style="min-width: 500px;"
+     
   ></date-range-picker>
         </v-col>
       </v-row>
@@ -369,9 +370,12 @@ export default {
     },
   }),
    methods: {
+     dateSelect(){
+       console.log(this. dateRange.startDate)
+     },
     dateFormat (classes, date) {
       if (!classes.disabled) {
-        classes.disabled = date.getTime() < new Date()
+        classes.disabled = date.getTime() > new Date()
       }
       return classes
     },
