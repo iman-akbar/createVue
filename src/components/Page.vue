@@ -13,6 +13,14 @@ letter-spacing: 0px;
 color: #707070C4;
 opacity: 1;"
           >Dashboard</p>
+            
+        </v-col>
+        <v-col offset-md="4">
+          <date-range-picker
+    v-model="dateRange"
+    :date-format="dateFormat"
+    style="min-width: 500px;"
+  ></date-range-picker>
         </v-col>
       </v-row>
       <div></div>
@@ -248,18 +256,21 @@ opacity: 1;">TOP COMPETITOR SKU</p>
 </template>
 
 <script>
-import { ref } from 'vue';
+import DateRangePicker from 'vue2-daterange-picker'
+
+import 'vue2-daterange-picker/dist/vue2-daterange-picker.css'
 
 export default {
   name: "Page",
-  setup() {
-    const dateValue = ref([]);
-
-    return {
-      dateValue
-    };
+  components: {
+    
+    DateRangePicker
   },
   data: () => ({
+    dateRange: {
+      startDate: '2019-12-26',
+      endDate: '2019-12-28'
+    },
     compietitor:[{
       nama: 'bukan es teh',
       harga: '6000',
