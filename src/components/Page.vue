@@ -54,7 +54,7 @@ opacity: 1;"
         <v-col cols="auto">
           <v-img class="lamp" src="../assets/Help.png" max-height="20" max-width="20"></v-img>
         </v-col>
-        <v-col>
+        <v-col cols="auto">
           <p
             class="mt-1"
             style="text-align: left;
@@ -68,9 +68,17 @@ left: 1097px;
 height: 18px;"
           >Click Here fro Help</p>
         </v-col>
+         <v-col >
+          <v-btn icon v-if="data === false" @click='open()'>
+            <img class="mb-3 button" src="../assets/icons8-chevron-down-30.png" >
+          </v-btn>
+          <v-btn icon v-else-if="data === true" @click='close()'>
+            <img class="mb-3 button" src="../assets/icons8-chevron-up-30.png" >
+            </v-btn>
+        </v-col>
       </v-row>
     </v-container>
-    <v-container>
+    <v-container v-show="data">
       <!-- <v-img class="mt-2 icon" src="../assets/Icon - More - Filled.svg" max-height="20" max-width="10"></v-img> -->
       <v-card
         col="12"
@@ -129,7 +137,7 @@ height: 18px;"
         </v-card-text>
       </v-card>
     </v-container>
-    <v-container>
+    <v-container v-show="data">
       <v-row>
         <v-col>
           <v-card>
@@ -268,6 +276,7 @@ export default {
     DateRangePicker
   },
   data: () => ({
+    data:false,
     dateRange: {
       startDate: '',
       endDate: ''
@@ -370,6 +379,12 @@ export default {
     },
   }),
    methods: {
+     close(){
+       this.data = false
+     },
+     open(){
+       this.data = true
+     },
      dateSelect(){
        console.log(this. dateRange.startDate)
      },
@@ -392,5 +407,8 @@ export default {
 }
 .icon {
   margin-right: -1000px;
+}
+.button{
+  margin-left: -30px;
 }
 </style>

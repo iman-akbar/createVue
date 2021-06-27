@@ -40,8 +40,9 @@ opacity: 1;">Company Name</span>
 </v-row>
     </v-col>
     <v-img class="ml-2" src="../assets/Profile.svg" max-height="32" max-width="32"></v-img>
-    <v-img class="ml-2 mr-5" src="../assets/logout.png" max-height="15" max-width="15"></v-img>
-    
+     <v-btn dark icon v-bind="attrs" v-on="on">
+    <v-img class="ml-2 mr-5" src="../assets/logout.png" max-height="15" max-width="15" @click="exit"></v-img>
+     </v-btn>
             
     </v-toolbar>
     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -71,6 +72,9 @@ export default {
         drawer: false
     }),
     methods: {
+      exit(){
+         this.$router.push('/')
+      },
         open(){
             this.$router.push('/Page')
         }
