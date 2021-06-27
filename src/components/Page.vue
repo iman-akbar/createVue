@@ -268,8 +268,8 @@ export default {
   },
   data: () => ({
     dateRange: {
-      startDate: '2019-12-26',
-      endDate: '2019-12-28'
+      startDate: '',
+      endDate: ''
     },
     compietitor:[{
       nama: 'bukan es teh',
@@ -368,6 +368,14 @@ export default {
       ],
     },
   }),
+   methods: {
+    dateFormat (classes, date) {
+      if (!classes.disabled) {
+        classes.disabled = date.getTime() < new Date()
+      }
+      return classes
+    },
+   }s
 };
 </script>
 
